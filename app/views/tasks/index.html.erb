@@ -1,0 +1,11 @@
+<h1>My Tasks</h1>
+<i class="fab fa-accessible-icon"></i>
+<% @tasks.each do |task| %>
+<% icon = task.completed ? "✔" : "𐄂"%>
+  <p><%=icon%> <%= link_to task.title, task_path(task) %>
+  <%= link_to "🗑", delete_task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></p>
+<% end %>
+
+<p><%= link_to "Create new task", new_task_path  %></p>
